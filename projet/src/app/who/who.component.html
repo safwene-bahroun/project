@@ -1,0 +1,28 @@
+<div class="background-container" style="
+  background-image: url('assets/images/pr.jpg'); /* Update with your image path */
+  background-size: cover; /* Ensure the image covers the entire element */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width of the parent element */
+">
+<div class="project-description">
+    <h1>Welcome to the Student Absence Detection System</h1>
+    <p>
+      Our system is designed to streamline the process of tracking and managing student attendance. 
+      By utilizing RFID technology, each student’s presence is automatically recorded as they enter 
+      the classroom. This ensures accurate, real-time monitoring and helps to efficiently manage 
+      absences, providing a reliable way to keep track of students attendance throughout the academic year.
+    </p>
+    <p>
+      The system offers easy integration with existing academic platforms, allowing administrators 
+      to generate reports, analyze attendance trends, and take necessary actions to improve 
+      student participation and performance. Start managing attendance more effectively today.
+    </p>
+    <div class="role-selection">
+      <h5>ARE YOU STUDENT OR ADMINSTRATOR ?</h5>
+      <button (click)="selectRole('student')">I'm a Student</button>
+      <button (click)="selectRole('admin')">I'm an Admin</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav me-auto">
+      <a class="nav-item nav-link" routerLink="/who">Home</a>
+    </div>
+    <div class="navbar-nav ms-auto">
+      <div *ngIf="userRole === 'student'" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="studentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Student
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="studentDropdown">
+          <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+          <li><a class="dropdown-item" routerLink="/sign">Sign</a></li>
+          <li><a class="dropdown-item" routerLink="/your-absence">Your Absence</a></li>
+        </ul>
+      </div>
+
+      <div *ngIf="userRole === 'admin'" class="nav-item dropdown ms-3">
+        <a class="nav-link dropdown-toggle" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Admin
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+          <li><a class="dropdown-item" routerLink="/admin_login">Login</a></li>
+          <li><a class="dropdown-item" routerLink="/admin_sign">Sign</a></li>
+          <li><a class="dropdown-item" routerLink="/admin_interface">Your Interface</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+<footer class="text-center mt-5">Published in 2024.</footer>

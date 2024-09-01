@@ -1,0 +1,49 @@
+<!-- profile.component.html -->
+<div class="custom-button-container">
+    <button class="btn btn-outline-danger" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+  </div>
+
+<div class="profile container mt-4" *ngIf="profile">
+    <h1 class="mb-4">Student Profile</h1>
+    <p><strong>Name:</strong> {{ profile.nom }} {{ profile.prenom }}</p>
+        <p><strong>CIN:</strong> {{ profile.cin }}</p>
+        <p><strong>carte_rfid:</strong> {{ profile.carte_rfid }}</p>
+        <p><strong>Email:</strong> {{ profile.email }}</p>
+        <p><strong>Class:</strong> {{ profile.classes }}</p>
+        <p><strong>Field:</strong> {{ profile.fields }}</p>
+    </div> 
+
+    <h2 class="mt-5 mb-3">Absence Schedule</h2>
+    
+    <div class="table-container">
+        <table >
+            <thead>
+                <tr><th>Date</th></tr>
+                <tr><th>8:30 - 10:00</th></tr>
+                <tr><th>10:00 - 11:30</th></tr>
+                <tr><th>14:00 - 15:30</th></tr>
+            </thead>
+            <tbody>
+                <!-- Add dynamic rows here if needed -->
+            </tbody>
+        </table>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>MONDAY</th>
+                    <th>TUSEDAY</th>
+                    <th>WEDNEDAY</th>
+                    <th>THURSDAY</th>
+                    <th>FRIDAY</th>
+                    <th>SATURDAY</th>
+                    <th>SUNDAY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--tr *ngFor="let row of absenceData">
+                    <td *ngFor="let day of row">{{ day }}</td>
+                </tr-->
+            </tbody>
+        </table>
+    </div>

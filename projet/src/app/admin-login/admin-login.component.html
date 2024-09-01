@@ -1,0 +1,26 @@
+<div class="hero-image">
+    <div class="hero-text">
+        <h2 id="welcome">ADMIN INTERFACE</h2><br>
+        <form class="s" (ngSubmit)="login()">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" title="user" class="form-control" [(ngModel)]='admin.user' placeholder="ADMIN NAME" name="admin"  />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" class="form-control" title="password" [(ngModel)]='admin.password' placeholder="PASSWORD"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password"/>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-outline-success btn-primary">Login</button>
+        <div *ngIf="verifier()" class="alert input-group-prepend" role="alert" id ="alert">
+            PLEASE TRY AGAIN
+          </div>
+          <div *ngIf="loginSuccess" class="alert alert-success mt-3" role="alert" id="alert">
+            LOGIN SUCCESSFUL
+          </div>
+        </form>
+    </div>
+</div>

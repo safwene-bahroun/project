@@ -1,0 +1,49 @@
+<div id="container" [ngStyle]="{backgroundImage: 'url(' + image + ')'}"></div>
+
+<form class="s" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" >
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Student</span>
+    </div>
+    <br>
+    <input type="text" class="form-control" [ngClass]="getColor('prenom')" placeholder="First Name" title="prenom" [(ngModel)]="user.prenom" name="prenom" (input)="update()" required/>
+    <br>
+    <input type="text" class="form-control" [ngClass]="getColor('nom')" placeholder="Last Name" title="nom" [(ngModel)]="user.nom" name="nom" (input)="update()" required/>
+  </div>
+
+  <div>
+    <input type="text" class="form-control" [ngClass]="getColor('cin')" placeholder="CIN" title="cin" [(ngModel)]="user.cin" name="cin" (input)="update()" required/>
+  </div>
+  <br />
+  <div>
+    <input type="email" class="form-control" [ngClass]="getColor('email')" placeholder="EMAIL" title="email" [(ngModel)]="user.email" name="email" (input)="update()" [pattern]="emailPattern" required/>
+  </div>
+  <br>
+  <p>Class:</p>
+  <select name="classes" class="custom-select custom-select-lg" title="classes" [(ngModel)]="user.classes" [ngClass]="getColor('classes')" (change)="update()" required>
+    <option value="choose option" selected>choose option</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <br>
+  <p>Fields:</p>
+  <select name="fields" class="custom-select custom-select-lg" title="fields" [(ngModel)]="user.fields" [ngClass]="getColor('fields')" (change)="update()" required>
+    <option value="choose option" selected>choose option</option>
+    <option value="SI">SI</option>
+    <option value="ISI">ISI</option>
+    <option value="IT">IT</option>
+    <option value="IG">IG</option>
+  </select>
+  <br><br>
+  <div>
+    <input type="password" class="form-control" [ngClass]="getColor('password')" placeholder="PASSWORD" title="password" [(ngModel)]="user.password" name="password" (input)="update()" required/>
+    <p class="a">*Minimum eight characters, at least one letter and one number.</p>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-outline-dark">ENROLMENT</button>
+  <br><br>
+  <div *ngIf="submitted" class="alert input-group-prepend" role="alert" id="submitted">
+    YOUR REGISTRATION HAS BEEN COMPLETED SUCCESSFULLY
+  </div>
+</form>

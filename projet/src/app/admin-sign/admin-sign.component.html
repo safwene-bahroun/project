@@ -1,0 +1,39 @@
+<form class="s" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <div class="form-header">
+    <span class="input-group-text">ADMINISTRATOR</span>
+  </div>
+  <table class="form-table">
+    <tr>
+      <td colspan="2">
+        <input type="text" id="admin_Name" class="form-control" [ngClass]="getColor('admin_name')" placeholder="Admin Name" title="Admin Name" [(ngModel)]="admin.admin_name" name="admin_Name" (change)="update()" required />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="text" id="cin" class="form-control" [ngClass]="getColor('cin')" placeholder="CIN" title="CIN" [(ngModel)]="admin.cin" name="cin" (change)="update()" required />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="email" id="email" class="form-control" [ngClass]="getColor('email')" placeholder="Email" title="Email" [(ngModel)]="admin.email" name="email" (input)="update()" [pattern]="emailPattern" required />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="password" id="password" class="form-control" [ngClass]="getColor('password')" placeholder="Password" title="Password" [(ngModel)]="admin.password" name="password" (input)="update()" required />
+        <p class="a">*Minimum eight characters, at least one letter and one number.</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button type="submit" class="btn btn-outline-dark">ENROLMENT</button>
+      </td>
+    </tr>
+  </table>
+
+  <div *ngIf="submitted" class="alert alert-success mt-3" role="alert" id="submitted">
+    YOUR REGISTRATION HAS BEEN COMPLETED SUCCESSFULLY
+  </div>
+</form>
+
+

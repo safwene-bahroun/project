@@ -1,0 +1,29 @@
+
+  .navbar-brand {
+    font-weight: bold; /* Bold brand name */
+    font-size: 1.5rem; /* Larger font size for the brand */
+  }
+  
+  .nav-link {
+    color: #007bff; /* Primary color for links */
+  }
+  
+  .nav-link.active {
+    font-weight: bold; /* Bold active link */
+    color: #0056b3; /* Darker shade for active link */
+  }
+  
+  .nav-link:hover {
+    color: #0056b3; /* Darker shade on hover */
+  }
+  
+  .btn-outline-danger {
+    border-color: #dc3545; /* Red border */
+    color: #dc3545; /* Red text */
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #dc3545; /* Red background on hover */
+    color: #ffffff; /* White text on hover */
+  }
+  

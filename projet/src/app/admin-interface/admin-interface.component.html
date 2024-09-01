@@ -1,0 +1,65 @@
+<div class="custom-button-container">
+  <button class="btn btn-outline-danger"  (click)="logout()">Logout</button>
+</div>
+<div *ngIf="error" class="alert alert-danger">
+  {{ error }}
+</div>
+<table *ngIf="!error && absences.length > 0">
+<thead>
+    <tr>
+      <th>ID</th>
+      <th>Student Name</th>
+      <th>period</th>
+      <th>Room</th>
+      <th>Presence</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let absence of absences">
+      <td>{{ absence.id }}</td>
+      <td>{{ absence.etudiant_nom }} {{ absence.etudiant_prenom }}</td>
+      <td>{{ absence.emploi_periode }}</td>
+      <td>{{ absence.salle_nom }}</td>
+      <td>{{ absence.presence }}</td>
+      <td>{{ absence.date_absence }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br>
+<form (ngSubmit)="onSubmit()">
+  <table class="table">
+    <thead>
+      <tr>
+        <th colspan="2">Configuration of Card</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <label for="cin">CIN</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': isInvalidCIN}" placeholder="CIN" [(ngModel)]="cardData.cin" name="cin" (input)="update()" required />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="rfidCode">CARD RFID CODE</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': isInvalidRFID}" placeholder="CARD RFID CODE" [(ngModel)]="cardData.rfid_code" name="rfidCode" (input)="update()" required />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="text-center">
+          <button type="submit" class="btn btn-success" (click)="action = 'add'">ADD</button>
+          <button type="submit" class="btn btn-warning" (click)="action = 'modify'">MODIFY</button>
+          <button type="submit" class="btn btn-danger" (click)="action = 'delete'">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+

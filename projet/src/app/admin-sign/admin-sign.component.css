@@ -1,0 +1,74 @@
+/* Reset some default styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Center the form on the page */
+form.s {
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+/* Header style */
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Table layout for form */
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.form-table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+button[type="submit"] {
+  background-color: orangered;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: green;
+}
+
+/* Alert styles */
+.alert-success {
+  color: rgb(47, 255, 123);
+  margin-top: 20px;
+}
+
+/* Additional styles */
+.a {
+  color: wheat;
+  font-size: 0.875rem; /* Slightly smaller font size for hint text */
+}
