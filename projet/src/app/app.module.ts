@@ -13,7 +13,6 @@ import { AdminInterfaceComponent } from './admin-interface/admin-interface.compo
 import { WhoComponent } from './who/who.component';
 import { AuthService } from './auth.service';
 import { AbsencesService } from './absences.service';
-
 @NgModule({
   declarations: [
     AppComponent,

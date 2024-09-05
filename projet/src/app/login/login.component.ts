@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 interface User {
+  id?: number; // Adjusted to number for type safety
   email: string;
   password: string;
-  id?:any;
 }
 
 @Component({
@@ -17,34 +17,39 @@ export class LoginComponent {
   border = '1';
   color = 'green';
   emailpattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$";
-  user: User = { email: '', password: '',id:undefined };
+  user: User = { email: '', password: '' };
   loginFailed = false;
   loginSuccess = false;
+  errorMessage: string = '';
 
-  constructor(private authService: AuthService, private router: Router,private route: ActivatedRoute) {
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
- 
   login() {
     this.authService.login(this.user.email, this.user.password).subscribe(
       response => {
-        console.log('Login successful', response); // Check the structure of the response here
+        console.log('Login successful', response);
         this.loginSuccess = true;
         this.loginFailed = false;
-        const userId = response.id;  // Ensure this matches the actual structure of the response
-        const returnUrl = this.route.snapshot.queryParams['returnUrl'] || `your-absence/${userId}`;
-        this.router.navigateByUrl(returnUrl);
+
+        // Navigate to the user's absences page
+        const userId = response.id; // Adjust based on your API response structure
+        if (userId) {
+          this.router.navigate([`/auth/profile/${userId}`]); // Corrected syntax for dynamic route
+        } else {
+          this.errorMessage = 'User ID not found in response.';
+          this.loginFailed = true;
+        }
       },
       error => {
         console.error('Login failed', error);
         this.loginFailed = true;
         this.loginSuccess = false;
+        this.errorMessage = 'Login failed. Please check your credentials and try again.';
       }
     );
   }
-  
-  
-  verifier() {
+
+  verifier(): boolean {
     return this.loginFailed;
   }
 }

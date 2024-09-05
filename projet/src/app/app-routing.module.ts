@@ -15,15 +15,21 @@ const routes: Routes = [
   { path: 'sign', component: SignComponent },
   { path: 'admin_login', component: AdminLoginComponent },
   { path: 'admin_sign', component: AdminSignComponent },
-  { path: 'admin_interface', component: AdminInterfaceComponent, canActivate: [AuthGuard] }, // Protect admin interface
-  { path: 'your-absence/:id', component: YourAbsenceComponent, canActivate: [AuthGuard] }, // Protect absence routes
-  { path: 'your-absence/profile/:id', component: YourAbsenceComponent, canActivate: [AuthGuard] },
-  { path: 'your-absence/:id/:cin', component: YourAbsenceComponent, canActivate: [AuthGuard] },
+  { 
+    path: 'admin_interface', 
+    component: AdminInterfaceComponent,
+  },
+  { 
+    path: 'auth/absences/:id', 
+    component: YourAbsenceComponent
+  },
+  { 
+    path: 'auth/profile/:id', 
+    component: YourAbsenceComponent
+  },
   { path: '', redirectTo: '/who', pathMatch: 'full' },
-  { path: '**', redirectTo: '/who' } // Wildcard route for 404
+  { path: '**', redirectTo: '/who' }
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -11,7 +11,7 @@
         <ul class="dropdown-menu" aria-labelledby="studentDropdown">
           <li><a class="dropdown-item" routerLink="/login">Login</a></li>
           <li><a class="dropdown-item" routerLink="/sign">Sign</a></li>
-          <li><a class="dropdown-item" routerLink="/your-absence">Your Absence</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/absences',id]">Your Absence</a></li>
         </ul>
       </div>
 

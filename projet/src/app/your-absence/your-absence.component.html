@@ -1,4 +1,3 @@
-<!-- profile.component.html -->
 <div class="custom-button-container">
     <button class="btn btn-outline-danger" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
   </div>
@@ -14,7 +13,9 @@
     </div> 
 
     <h2 class="mt-5 mb-3">Absence Schedule</h2>
-    
+    <form (ngSubmit)="fetchCurrentUserEmploi() ">
+        <button type="submit"class="btn btn-outline-success btn-primary"><h4>GIVE ME</h4></button>
+    </form>
     <div class="table-container">
         <table >
             <thead>

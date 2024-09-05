@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service'; // Adjust the path as necessary
-export interface User {
-  id?: any;
+ interface User {
+  id: any;
   token: string;
   refreshToken?: string;
   cin: string;
@@ -20,8 +20,8 @@ export interface User {
 export class SignComponent {
   image = 'assets/images/pr.jpeg'; // Adjusted path
   user: User = {
+    id:0,
     token:'',
-    id: undefined,
     cin: '',
     nom: '',
     prenom: '',
@@ -82,11 +82,6 @@ export class SignComponent {
       }
     );
   }
-
-
-
-
-
 
 
 }
