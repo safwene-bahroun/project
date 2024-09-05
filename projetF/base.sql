@@ -16,29 +16,32 @@ CREATE TABLE user_admin(
     admin_password TEXT NOT NULL
 );
 
-CREATE TABLE cards(
+-- Create the `cards` table
+CREATE TABLE cards (
     id SERIAL PRIMARY KEY,
     cin VARCHAR(8) NOT NULL UNIQUE,
     carte_rfid VARCHAR(12) NOT NULL UNIQUE
 );
 
+-- Create the `classes` table
 CREATE TABLE classes (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(50) NOT NULL
 );
 
+-- Create the `fields` table
 CREATE TABLE fields (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(50) NOT NULL
 );
 
-
+-- Create the `salles` table
 CREATE TABLE salles (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(50) NOT NULL UNIQUE
 );
 
-
+-- Create the `etudiant` table
 CREATE TABLE etudiant (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
@@ -55,27 +58,27 @@ CREATE TABLE etudiant (
     FOREIGN KEY (cin) REFERENCES cards(cin)
 );
 
-
+-- Create the `emplois_du_temps` table
 CREATE TABLE emplois_du_temps (
     id SERIAL PRIMARY KEY,
     classe_id INTEGER NOT NULL,
     periode VARCHAR(50) NOT NULL,
     matiere VARCHAR(50) NOT NULL,
-    presence VARCHAR(20),
     fields_id INTEGER NOT NULL,
     salles_id INTEGER NOT NULL,
+    presence VARCHAR(20),
     FOREIGN KEY (salles_id) REFERENCES salles(id),
     FOREIGN KEY (fields_id) REFERENCES fields(id),
     FOREIGN KEY (classe_id) REFERENCES classes(id)
 );
 
-
+-- Create the `absences` table
 CREATE TABLE absences (
     id SERIAL PRIMARY KEY,
     etudiant_id INTEGER NOT NULL,
     emploi_du_temps_id INTEGER NOT NULL,
-    salle_id INTEGER NOT NULL,
-    presence VARCHAR(20) NOT NULL,
+    salle_id INTEGER NOT NULL ,
+    presence VARCHAR(20),
     date_absence TIMESTAMP NOT NULL,
     carte_rfid VARCHAR(12) NOT NULL,
     cin VARCHAR(8) NOT NULL,
@@ -86,16 +89,15 @@ CREATE TABLE absences (
     FOREIGN KEY (cin) REFERENCES cards(cin)
 );
 
-
+-- Create the `ouvertures_porte` table
 CREATE TABLE ouvertures_porte (
     id SERIAL PRIMARY KEY,
     carte_rfid VARCHAR(12) NOT NULL,
     date_ouverture TIMESTAMP NOT NULL,
     salle_id INTEGER NOT NULL,
-    cin VARCHAR(8) NOT NULL,
     FOREIGN KEY (salle_id) REFERENCES salles(id),
     FOREIGN KEY (carte_rfid) REFERENCES cards(carte_rfid),
-    FOREIGN KEY (cin) REFERENCES cards(cin)
+    
 );
 
 

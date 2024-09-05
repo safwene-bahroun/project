@@ -1,12 +1,12 @@
 from flask import Flask
 from flask_cors import CORS
 import os
-import secrets
 from .db import init_app
 from flask_jwt_extended import JWTManager
 def create_app():
     app = Flask(__name__)
     CORS(app)
+    import secrets
     app.config.from_mapping(
         DB_HOST=os.getenv('DB_HOST', 'localhost'),
         DB_NAME=os.getenv('DB_NAME', 'safwene'),
@@ -25,6 +25,8 @@ def create_app():
     init_absences_routes(app)
     init_absences_routes_admin(app)
     return app
+
+
 
 if __name__ == '__main__':
     app = create_app()
